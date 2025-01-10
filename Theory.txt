@@ -1,0 +1,40 @@
+Socket -> A socket is an endpoint for sending and receiving data in a network, used in both TCP and UDP communication.
+header file -> sys/socket.h ->they provide the necessary functions and structures to create and manage sockets.
+
+socket() -> creates a socket Sockets are the primary method of communication between servers and clients in a network.
+TCP Socket: We use TCP sockets to establish a reliable connection between the client and server.
+UDP Socket: Typically used for connectionless communication, not ideal for HTTPS as it requires a connection-oriented protocol.
+To create a socket in C, we use the following functions:
+
+socket(): Creates the socket.
+bind(): Binds the socket to an IP and port.
+listen(): Puts the server in listening mode.
+accept(): Accepts incoming connections.
+send() / recv(): Send and receive data from the socket.
+
+Binding (Server Only): The server binds its socket to a specific IP address and port number.
+This step tells the server which network interface to use and on which port to listen for incoming connections.
+Associates the socket with a local IP address and port.
+Used by servers to specify the port number and IP address they want to listen on.
+
+syntax: int socket(int domain, int type, int protocol)
+domain: Address family (e.g., AF_INET for IPv4, AF_INET6 for IPv6).
+type: Type of socket (e.g., SOCK_STREAM for TCP, SOCK_DGRAM for UDP).
+protocol: Protocol to be used (usually 0 for default)
+
+
+inet_pton(): Syntax->  int inet_pton(int af, const char *src, void *dst);
+af: Address family (AF_INET for IPv4, AF_INET6 for IPv6).
+src: The source IP address in text format (e.g., "192.168.0.1").
+dst: A pointer to a buffer where the binary version of the IP address will be stored.
+
+The empty line (\r\n\r\n) marks the end of the headers and start of the body.
+
+In HTTP, the headers are sent first, fol(i.e.,lowed by a blank line  \r\n\r\n), and then the body (if any). 
+So when you parse an HTTP request, you need to know where the headers stop and where the body begins. 
+The sequence \r\n\r\n acts as a delimiter to distinguish these two parts.
+
+
+
+
+
